@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.greatchn.cstraining.db.po.UserSuccessfulCaseEntity" table="user_successful_case"
+           schema="cstraining">
+        <id name="id" column="id"/>
+        <property name="userTruename" column="user_truename"/>
+        <property name="jobs" column="jobs"/>
+        <property name="userVoices" column="user_voices"/>
+        <property name="userIcoPath" column="user_ico_path"/>
+    </class>
+</hibernate-mapping>

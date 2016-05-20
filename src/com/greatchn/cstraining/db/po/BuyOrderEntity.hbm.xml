@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.greatchn.cstraining.db.po.BuyOrderEntity" table="buy_order" schema="cstraining">
+        <id name="id" column="id"/>
+        <property name="orderBh" column="order_bh"/>
+        <property name="orderYfk" column="order_yfk"/>
+        <property name="orderSfk" column="order_sfk"/>
+        <property name="orderly" column="orderly"/>
+        <property name="orderstatus" column="orderstatus"/>
+        <property name="buyTime" column="buy_time"/>
+        <property name="buyUserid" column="buy_userid"/>
+        <property name="sellUserid" column="sell_userid"/>
+        <property name="sffp" column="sffp"/>
+        <property name="sfht" column="sfht"/>
+        <property name="tradeno" column="tradeno"/>
+        <property name="tradetype" column="tradetype"/>
+    </class>
+</hibernate-mapping>

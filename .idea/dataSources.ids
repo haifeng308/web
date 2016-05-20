@@ -1,0 +1,1548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - cstraining@192.168.101.4" uuid="092dd47d-903e-4a9f-ac0d-18dfe9a89bdb">
+    <database-info product="MySQL" version="5.6.21-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="cstraining"/>
+      <table id="2" parent="1" name="auth_lm"/>
+      <table id="3" parent="1" name="auth_lm_role"/>
+      <table id="4" parent="1" name="auth_resc"/>
+      <table id="5" parent="1" name="auth_resc_role"/>
+      <table id="6" parent="1" name="auth_role"/>
+      <table id="7" parent="1" name="auth_user_role"/>
+      <table id="8" parent="1" name="buy_fp_infos"/>
+      <table id="9" parent="1" name="buy_order"/>
+      <table id="10" parent="1" name="buy_products"/>
+      <table id="11" parent="1" name="cs_school_area"/>
+      <table id="12" parent="1" name="cs_subject_type"/>
+      <table id="13" parent="1" name="cs_time_type"/>
+      <table id="14" parent="1" name="cs_user"/>
+      <table id="15" parent="1" name="kc_content_teacher"/>
+      <table id="16" parent="1" name="kc_outline"/>
+      <table id="17" parent="1" name="kc_outline_content"/>
+      <table id="18" parent="1" name="kc_subject"/>
+      <table id="19" parent="1" name="kc_subject_class"/>
+      <table id="20" parent="1" name="kc_subject_class_lesson"/>
+      <table id="21" parent="1" name="kc_subject_outline"/>
+      <table id="22" parent="1" name="kc_subject_qa"/>
+      <table id="23" parent="1" name="kc_subject_user"/>
+      <table id="24" parent="1" name="kc_user_lesson_sign"/>
+      <table id="25" parent="1" name="messages"/>
+      <table id="26" parent="1" name="teacher"/>
+      <table id="27" parent="1" name="user_attendance"/>
+      <table id="28" parent="1" name="user_kzinfo"/>
+      <table id="29" parent="1" name="user_subject_review"/>
+      <table id="30" parent="1" name="user_successful_case"/>
+      <table id="31" parent="1" name="user_teacher_review"/>
+      <table id="32" parent="1" name="wx_button"/>
+      <table id="33" parent="1" name="wx_click_data"/>
+      <table id="34" parent="1" name="wx_group_type"/>
+      <table id="35" parent="1" name="wx_record_msg"/>
+      <table id="36" parent="1" name="wx_user"/>
+      <table id="37" parent="1" name="cs_product_discount"/>
+      <table id="38" parent="1" name="cs_products"/>
+      <table id="39" parent="1" name="teach_subjects"/>
+      <column id="40" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="41" parent="2" name="lmmc">
+        <comment>栏目名称</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(80)</data-type>
+      </column>
+      <column id="42" parent="2" name="lmjc">
+        <comment>栏目级次</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(2)</data-type>
+      </column>
+      <column id="43" parent="2" name="sjlmid">
+        <comment>上级栏目</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="44" parent="2" name="icon">
+        <comment>图标</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="45" parent="2" name="lmtype">
+        <comment>栏目类型</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="46" parent="2" name="is_show">
+        <mandatory>1</mandatory>
+        <data-type>varchar(1)</data-type>
+      </column>
+      <key id="47" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="48" parent="3" name="role_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="49" parent="3" name="lm_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <index id="50" parent="3" name="fk_user_lm_lm_id">
+        <columns>lm_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="51" parent="3" name="idx_user_lm_id">
+        <columns>role_id
+lm_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="52" parent="3" name="idx_user_lm_id">
+        <columns>role_id
+lm_id</columns>
+        <underlying-index>idx_user_lm_id</underlying-index>
+      </key>
+      <foreign-key id="53" parent="3" name="fk_user_lm_lm_id">
+        <columns>lm_id</columns>
+        <ref-key>~.auth_lm.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="54" parent="3" name="fk_user_lm_user_id">
+        <columns>role_id</columns>
+        <ref-key>~.auth_role.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="55" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="56" parent="4" name="resctype_dm">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="57" parent="4" name="resc_name">
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="58" parent="4" name="res_type">
+        <comment>对应限制资源的类型  URL,METHOD</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="59" parent="4" name="res_string">
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="60" parent="4" name="priority">
+        <comment>排序</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="61" parent="4" name="descn">
+        <comment>描述</comment>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <key id="62" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="63" parent="5" name="resc_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="64" parent="5" name="role_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <index id="65" parent="5" name="fk_resc_role_role_id">
+        <columns>role_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="66" parent="5" name="idx_resc_role_id">
+        <columns>resc_id
+role_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="67" parent="5" name="idx_resc_role_id">
+        <columns>resc_id
+role_id</columns>
+        <underlying-index>idx_resc_role_id</underlying-index>
+      </key>
+      <foreign-key id="68" parent="5" name="fk_resc_role_resc_id">
+        <columns>resc_id</columns>
+        <ref-key>~.auth_resc.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="69" parent="5" name="fk_resc_role_role_id">
+        <columns>role_id</columns>
+        <ref-key>~.auth_role.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="70" parent="6" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="71" parent="6" name="role_name">
+        <comment>角色名称</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="72" parent="6" name="role_descn">
+        <comment>角色描述</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="73" parent="6" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="74" parent="7" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="75" parent="7" name="role_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <index id="76" parent="7" name="fk_user_role_role_id">
+        <columns>role_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="77" parent="7" name="idx_user_role_id">
+        <columns>user_id
+role_id</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="78" parent="7" name="idx_user_role_id">
+        <columns>user_id
+role_id</columns>
+        <underlying-index>idx_user_role_id</underlying-index>
+      </key>
+      <foreign-key id="79" parent="7" name="fk_user_role_role_id">
+        <columns>role_id</columns>
+        <ref-key>~.auth_role.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="80" parent="7" name="fk_user_role_user_id">
+        <columns>user_id</columns>
+        <ref-key>~.cs_user.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="81" parent="8" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="82" parent="8" name="fp_title">
+        <comment>发票抬头</comment>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="83" parent="8" name="nsrsbh">
+        <comment>税号</comment>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="84" parent="8" name="company_address">
+        <comment>公司地址</comment>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="85" parent="8" name="company_phone">
+        <comment>公司电话</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="86" parent="8" name="bankacc">
+        <comment>银行账号</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="87" parent="8" name="registerbank">
+        <comment>开户银行</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="88" parent="8" name="contact_people">
+        <comment>联系人</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="89" parent="8" name="contact_phone">
+        <comment>联系电话</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="90" parent="8" name="mailaddress">
+        <comment>寄送地址</comment>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="91" parent="8" name="portnum">
+        <comment>邮编</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="92" parent="8" name="orderId">
+        <comment>所关联的订单ID</comment>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="93" parent="8" name="company_name">
+        <comment>公司名称</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="94" parent="8" name="fptype">
+        <comment>发票类型 1：增值税普通发票，2：增值税专用发票</comment>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <column id="95" parent="8" name="RECEIVETYPE">
+        <comment>收取发票方式，1自提，2到付，3网上支付</comment>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <column id="96" parent="8" name="ISPRINT">
+        <comment>是否打印发票,Y/N</comment>
+        <data-type>varchar(2)</data-type>
+        <default-expression>&apos;N&apos;</default-expression>
+      </column>
+      <column id="97" parent="8" name="fpnum">
+        <comment>发票号码</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="98" parent="8" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="99" parent="9" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="100" parent="9" name="order_bh">
+        <comment>订单编号</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="101" parent="9" name="order_yfk">
+        <comment>订单应付款</comment>
+        <data-type>double(10,2)</data-type>
+      </column>
+      <column id="102" parent="9" name="order_sfk">
+        <comment>订单实付款</comment>
+        <data-type>double(10,2)</data-type>
+      </column>
+      <column id="103" parent="9" name="orderly">
+        <comment>订单来源 1:用户自行下单，2：后台下单</comment>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="104" parent="9" name="orderstatus">
+        <comment>订单状态 1:未付款，2：已付款 ，3：交易关闭</comment>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <column id="105" parent="9" name="buy_time">
+        <comment>订单生成时间</comment>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="106" parent="9" name="buy_userid">
+        <comment>购买人</comment>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="107" parent="9" name="sell_userid">
+        <comment>销售人员</comment>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="108" parent="9" name="sffp">
+        <comment>是否要发票 Y/N</comment>
+        <data-type>char(1)</data-type>
+      </column>
+      <column id="109" parent="9" name="sfht">
+        <comment>是否要合同 Y/N</comment>
+        <data-type>char(1)</data-type>
+      </column>
+      <column id="110" parent="9" name="tradeno">
+        <comment>交易流水号</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="111" parent="9" name="tradetype">
+        <comment>支付类型 zfb:支付宝，wy:网银，yl：银联，wx:微信</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <index id="112" parent="9" name="order_bh">
+        <columns>order_bh</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="113" parent="9" name="order_bh">
+        <columns>order_bh</columns>
+        <underlying-index>order_bh</underlying-index>
+      </key>
+      <key id="114" parent="9" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="115" parent="10" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="116" parent="10" name="ordersId">
+        <comment>所属订单ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="117" parent="10" name="productstype">
+        <comment>购买的产品类型</comment>
+        <data-type>varchar(40)</data-type>
+      </column>
+      <column id="118" parent="10" name="product_price">
+        <comment>此产品价格</comment>
+        <data-type>double(10,2)</data-type>
+      </column>
+      <column id="119" parent="10" name="SUBJECT_id">
+        <comment>所选课程id</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="120" parent="10" name="subject_class_id">
+        <comment>所选课程班次ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="121" parent="10" name="outline_id">
+        <comment>所选提纲ID集合，多个ID之间使用_分割</comment>
+        <data-type>varchar(300)</data-type>
+      </column>
+      <column id="122" parent="10" name="discount_type_bh">
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="123" parent="10" name="bz">
+        <comment>备注</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="124" parent="10" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="125" parent="11" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="126" parent="11" name="area_name">
+        <comment>校区名称</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="127" parent="11" name="bz">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="128" parent="11" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="129" parent="12" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="130" parent="12" name="type_name">
+        <comment>类型名称</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="131" parent="12" name="type_level">
+        <comment>类型水平</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="132" parent="12" name="bz">
+        <comment>备注</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="133" parent="12" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="134" parent="13" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="135" parent="13" name="time_name">
+        <comment>时间段名称</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="136" parent="13" name="type_fl">
+        <comment>类型分类</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="137" parent="13" name="bz">
+        <comment>备注</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="138" parent="13" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="139" parent="14" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="140" parent="14" name="userName">
+        <comment>用户名</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="141" parent="14" name="password">
+        <comment>用户密码</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="142" parent="14" name="real_name">
+        <comment>真实姓名</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="143" parent="14" name="phone">
+        <comment>联系电话</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="144" parent="14" name="address">
+        <comment>地址</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="145" parent="14" name="u_type">
+        <comment>用户类型</comment>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <column id="146" parent="14" name="u_status">
+        <data-type>varchar(2)</data-type>
+      </column>
+      <column id="147" parent="14" name="email">
+        <comment>电子邮件</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="148" parent="14" name="bz">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="149" parent="14" name="reg_time">
+        <comment>注册时间</comment>
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="150" parent="14" name="last_login_time">
+        <comment>最后一次登录时间</comment>
+        <data-type>datetime</data-type>
+      </column>
+      <index id="151" parent="14" name="UK_32h95nnyvdek9llep51w76s0r">
+        <columns>userName</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="152" parent="14" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <key id="153" parent="14" name="UK_32h95nnyvdek9llep51w76s0r">
+        <columns>userName</columns>
+        <underlying-index>UK_32h95nnyvdek9llep51w76s0r</underlying-index>
+      </key>
+      <column id="154" parent="15" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="155" parent="15" name="subject_id">
+        <comment>课程ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="156" parent="15" name="outline_content_id">
+        <comment>提纲内容ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="157" parent="15" name="teacher_id">
+        <comment>授课老师ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <key id="158" parent="15" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="159" parent="16" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="160" parent="16" name="outline_name">
+        <comment>提纲名称</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="161" parent="16" name="outline_price">
+        <comment>提纲价格</comment>
+        <data-type>double(10,2)</data-type>
+      </column>
+      <column id="162" parent="16" name="outline_type">
+        <comment>提纲类型(备用)</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="163" parent="16" name="bz">
+        <comment>备注</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="164" parent="16" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="165" parent="17" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="166" parent="17" name="content_name">
+        <comment>内容名称</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="167" parent="17" name="outline_id">
+        <comment>所属提纲ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="168" parent="17" name="single_price">
+        <comment>单门课程价格(备用)</comment>
+        <data-type>double(10,2)</data-type>
+      </column>
+      <column id="169" parent="17" name="teach_type">
+        <comment>授课形式</comment>
+        <data-type>int(2)</data-type>
+      </column>
+      <column id="170" parent="17" name="teaching_period">
+        <comment>课时</comment>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="171" parent="17" name="content_type">
+        <comment>内容类型(备用)</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="172" parent="17" name="bz">
+        <comment>备注</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <index id="173" parent="17" name="outline_id">
+        <columns>outline_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="174" parent="17" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="175" parent="17" name="kc_outline_content_ibfk_1">
+        <columns>outline_id</columns>
+        <ref-key>~.kc_outline.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="176" parent="18" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="177" parent="18" name="start_time">
+        <comment>开始时间</comment>
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="178" parent="18" name="subject_name">
+        <comment>课程名称</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="179" parent="18" name="audiences">
+        <comment>客户群(字符串描述)</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="180" parent="18" name="teaching_period">
+        <comment>课时</comment>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="181" parent="18" name="info">
+        <comment>课程内容介绍</comment>
+        <data-type>longtext</data-type>
+      </column>
+      <column id="182" parent="18" name="subject_price">
+        <comment>定价</comment>
+        <data-type>double(10,2)</data-type>
+      </column>
+      <column id="183" parent="18" name="teach_type">
+        <comment>授课形式，面授或在线或都有</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="184" parent="18" name="time_type">
+        <comment>上课时间类型、存储班次的所有类型</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="185" parent="18" name="main_teacher">
+        <comment>主讲人，用作页面显示</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="186" parent="18" name="subject_type">
+        <comment>课程类型</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="187" parent="18" name="create_time">
+        <comment>创建时间</comment>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="188" parent="18" name="create_user">
+        <comment>创建用户</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="189" parent="18" name="sub_status">
+        <comment>课程状态</comment>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <column id="190" parent="18" name="sub_order">
+        <comment>课程排序</comment>
+        <data-type>varchar(4)</data-type>
+      </column>
+      <column id="191" parent="18" name="subject_icon_path">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="192" parent="18" name="bz">
+        <comment>备注</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="193" parent="18" name="teaching_advantages">
+        <comment>教学优势</comment>
+        <data-type>text</data-type>
+      </column>
+      <column id="194" parent="18" name="teaching_objective">
+        <comment>教学目标</comment>
+        <data-type>text</data-type>
+      </column>
+      <column id="195" parent="18" name="expiration_time">
+        <comment>到期时间</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="196" parent="18" name="sign_up_remind">
+        <comment>报名提醒</comment>
+        <data-type>text</data-type>
+      </column>
+      <column id="197" parent="18" name="subject_ts">
+        <comment>课程特色</comment>
+        <data-type>text</data-type>
+      </column>
+      <column id="198" parent="18" name="subject_details">
+        <comment>课程详情</comment>
+        <data-type>text</data-type>
+      </column>
+      <column id="199" parent="18" name="xxjj">
+        <comment>学校简介</comment>
+        <data-type>text</data-type>
+      </column>
+      <column id="200" parent="18" name="szll">
+        <comment>师资力量</comment>
+        <data-type>text</data-type>
+      </column>
+      <key id="201" parent="18" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="202" parent="19" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="203" parent="19" name="class_name">
+        <comment>班级名称</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="204" parent="19" name="subject_id">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="205" parent="19" name="time_type">
+        <comment>上课时间类型、平日班、晚班、周日班:1、2、3</comment>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <column id="206" parent="19" name="school_area">
+        <comment>校区，代码</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="207" parent="19" name="teacher_id">
+        <comment>主讲人老师id</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="208" parent="19" name="jw_teacher_id">
+        <comment>教务老师ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="209" parent="19" name="create_time">
+        <comment>创建时间</comment>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="210" parent="19" name="create_user">
+        <comment>创建用户</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="211" parent="19" name="class_status">
+        <comment>课程状态</comment>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <column id="212" parent="19" name="class_order">
+        <comment>课程排序</comment>
+        <data-type>varchar(4)</data-type>
+      </column>
+      <column id="213" parent="19" name="sign_up_count">
+        <comment>报名人数</comment>
+        <data-type>int(4)</data-type>
+      </column>
+      <column id="214" parent="19" name="bz">
+        <comment>备注</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="215" parent="19" name="product_type_bh">
+        <comment>代表的产品类型</comment>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="216" parent="19" name="start_time">
+        <comment>开始时间</comment>
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="217" parent="19" name="end_time">
+        <comment>结束时间</comment>
+        <data-type>varchar(30)</data-type>
+      </column>
+      <index id="218" parent="19" name="kc_class_subid">
+        <columns>subject_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="219" parent="19" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="220" parent="19" name="kc_class_subid">
+        <columns>subject_id</columns>
+        <ref-key>~.kc_subject.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="221" parent="20" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="222" parent="20" name="lesson_name">
+        <comment>每节课名称</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="223" parent="20" name="lesson_time">
+        <comment>每节课的时间,存储到时间用以记录上课日期和上课时间</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="224" parent="20" name="lesson_sort">
+        <comment>课堂排序，也可做第几节课使用</comment>
+        <data-type>int(4)</data-type>
+      </column>
+      <column id="225" parent="20" name="subject_id">
+        <comment>所属课程ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="226" parent="20" name="class_id">
+        <comment>所属班次ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="227" parent="20" name="outline_id">
+        <comment>讲课内容所属大纲ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="228" parent="20" name="lesson_type">
+        <comment>课堂类型</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="229" parent="20" name="lesson_teacher_id">
+        <comment>上课老师ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="230" parent="20" name="lesson_info">
+        <comment>课程简介</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="231" parent="20" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="232" parent="21" name="subject_id">
+        <comment>课程ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="233" parent="21" name="outline_id">
+        <comment>提纲ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <index id="234" parent="21" name="outline_id">
+        <columns>outline_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="235" parent="21" name="subject_id">
+        <columns>subject_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <foreign-key id="236" parent="21" name="kc_subject_outline_ibfk_1">
+        <columns>subject_id</columns>
+        <ref-key>~.kc_subject.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="237" parent="21" name="kc_subject_outline_ibfk_2">
+        <columns>outline_id</columns>
+        <ref-key>~.kc_outline.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="238" parent="22" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="239" parent="22" name="ask_user_id">
+        <comment>提问者ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="240" parent="22" name="ask_time">
+        <comment>提问时间</comment>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="241" parent="22" name="ask_content">
+        <comment>提问内容</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="242" parent="22" name="answer_user_id">
+        <comment>回答者ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="243" parent="22" name="answer_time">
+        <comment>回答时间</comment>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="244" parent="22" name="answer_content">
+        <comment>回答内容</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="245" parent="22" name="subject_id">
+        <comment>课程ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <key id="246" parent="22" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="247" parent="23" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="248" parent="23" name="user_id">
+        <comment>用户id</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="249" parent="23" name="SUBJECT_id">
+        <comment>所选课程id</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="250" parent="23" name="subject_class_id">
+        <comment>所选课程班次ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="251" parent="23" name="outline_id">
+        <comment>所选提纲ID集合，多个ID之间使用_分割</comment>
+        <data-type>varchar(300)</data-type>
+      </column>
+      <column id="252" parent="23" name="sign_up_time">
+        <comment>报名时间</comment>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="253" parent="23" name="sign_up_status">
+        <comment>报名状态(缴费、没缴费等)-0：未交费|1：已缴费</comment>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <column id="254" parent="23" name="bz">
+        <comment>备注</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="255" parent="23" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="256" parent="24" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="257" parent="24" name="lesson_id">
+        <comment>每堂课的ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="258" parent="24" name="sign_user_id">
+        <comment>签到人ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="259" parent="24" name="sign_time">
+        <comment>签到时间</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <key id="260" parent="24" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="261" parent="25" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="262" parent="25" name="message_title">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="263" parent="25" name="message_info">
+        <data-type>text</data-type>
+      </column>
+      <column id="264" parent="25" name="addtime">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="265" parent="25" name="_sort">
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="266" parent="25" name="is_show">
+        <comment>审核是否通过，通过才允许页面展示</comment>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <key id="267" parent="25" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="268" parent="26" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="269" parent="26" name="teacher_name">
+        <comment>教师名称</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="270" parent="26" name="pic_path">
+        <comment>头像路径</comment>
+        <data-type>varchar(200)</data-type>
+      </column>
+      <column id="271" parent="26" name="title">
+        <comment>头衔</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="272" parent="26" name="info">
+        <comment>教师信息介绍</comment>
+        <data-type>text</data-type>
+      </column>
+      <column id="273" parent="26" name="address">
+        <comment>地址</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="274" parent="26" name="phone">
+        <comment>联系电话</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="275" parent="26" name="characteristic">
+        <comment>特点</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="276" parent="26" name="sayings">
+        <comment>经典语录</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="277" parent="26" name="send_words">
+        <comment>寄语</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="278" parent="26" name="bz">
+        <comment>备注</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="279" parent="26" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="280" parent="27" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="281" parent="27" name="user_id">
+        <comment>用户ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="282" parent="27" name="subject_id">
+        <comment>课程ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="283" parent="27" name="sign_time">
+        <comment>签到时间</comment>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="284" parent="27" name="sign_status">
+        <comment>签到状态</comment>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <index id="285" parent="27" name="user_id">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="286" parent="27" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="287" parent="27" name="user_attendance_ibfk_1">
+        <columns>user_id</columns>
+        <ref-key>~.cs_user.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="288" parent="28" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="289" parent="28" name="user_icon">
+        <comment>用户头像路径地址</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="290" parent="28" name="user_id">
+        <comment>外键 用户ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="291" parent="28" name="sex">
+        <comment>性别 1：男 ，0：女</comment>
+        <data-type>int(1)</data-type>
+      </column>
+      <column id="292" parent="28" name="age">
+        <comment>年龄</comment>
+        <data-type>int(3)</data-type>
+      </column>
+      <column id="293" parent="28" name="education">
+        <comment>学历</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="294" parent="28" name="university_name">
+        <comment>毕业（在读）院校</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="295" parent="28" name="before_level">
+        <comment>培训前水平</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="296" parent="28" name="after_level">
+        <comment>培训后水平</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="297" parent="28" name="work_history">
+        <comment>工作经历</comment>
+        <data-type>text</data-type>
+      </column>
+      <column id="298" parent="28" name="training_history">
+        <comment>培训经历</comment>
+        <data-type>text</data-type>
+      </column>
+      <column id="299" parent="28" name="introduce">
+        <comment>个人介绍</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="300" parent="28" name="nick_name">
+        <comment>昵称</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="301" parent="28" name="qq_number">
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="302" parent="28" name="birthday">
+        <comment>生日</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="303" parent="28" name="workplace">
+        <comment>工作单位</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="304" parent="28" name="domicile">
+        <comment>居住地</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="305" parent="28" name="address">
+        <comment>通讯地址</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="306" parent="28" name="postcode">
+        <comment>邮政编码</comment>
+        <data-type>varchar(10)</data-type>
+      </column>
+      <column id="307" parent="28" name="personality_signature">
+        <comment>个性签名</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <index id="308" parent="28" name="user_id">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="309" parent="28" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="310" parent="28" name="user_kzinfo_ibfk_1">
+        <columns>user_id</columns>
+        <ref-key>~.cs_user.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="311" parent="29" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="312" parent="29" name="target_type">
+        <comment>被评价类型(1:课程、0：教师)</comment>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <column id="313" parent="29" name="target_id">
+        <comment>被评价对象ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="314" parent="29" name="review_user_id">
+        <comment>评价者ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="315" parent="29" name="review_content">
+        <comment>评价内容</comment>
+        <data-type>text</data-type>
+      </column>
+      <column id="316" parent="29" name="review_time">
+        <comment>评价时间</comment>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="317" parent="29" name="star_level">
+        <comment>打分、星级</comment>
+        <data-type>int(2)</data-type>
+      </column>
+      <column id="318" parent="29" name="is_show">
+        <comment>是否显示</comment>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <index id="319" parent="29" name="FK_8h8kev2y4vit3cfs24u9of1wt">
+        <columns>target_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="320" parent="29" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="321" parent="30" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="322" parent="30" name="user_truename">
+        <comment>学员姓名</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="323" parent="30" name="jobs">
+        <comment>工作岗位</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="324" parent="30" name="user_voices">
+        <comment>学员心声</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="325" parent="30" name="user_ico_path">
+        <comment>学员头像</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="326" parent="30" name="study_subject_name">
+        <comment>所学课程</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="327" parent="30" name="salary">
+        <data-type>int(5)</data-type>
+      </column>
+      <key id="328" parent="30" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="329" parent="31" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="330" parent="31" name="target_type">
+        <comment>被评价类型(1:课程、0：教师)</comment>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <column id="331" parent="31" name="target_id">
+        <comment>被评价对象ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="332" parent="31" name="review_user_id">
+        <comment>评价者ID</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="333" parent="31" name="review_content">
+        <comment>评价内容</comment>
+        <data-type>text</data-type>
+      </column>
+      <column id="334" parent="31" name="review_time">
+        <comment>评价时间</comment>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="335" parent="31" name="star_level">
+        <comment>打分、星级</comment>
+        <data-type>int(2)</data-type>
+      </column>
+      <column id="336" parent="31" name="is_show">
+        <comment>是否显示</comment>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <index id="337" parent="31" name="FK_8h8kev2y4vit3cfs24u9of1wt">
+        <columns>target_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="338" parent="31" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="339" parent="31" name="user_teacher_review_ibfk_1">
+        <columns>target_id</columns>
+        <ref-key>~.teacher.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="340" parent="32" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="341" parent="32" name="level">
+        <comment>一级菜单排序 1~3</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <column id="342" parent="32" name="level_two">
+        <comment>二级菜单排序 0~5	 ，0为一级菜单</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(2)</data-type>
+      </column>
+      <column id="343" parent="32" name="type">
+        <comment>菜单的响应动作类型</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="344" parent="32" name="name">
+        <comment>菜单标题，不超过16个字节，子菜单不超过40个字节</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="345" parent="32" name="key_value">
+        <comment>菜单KEY值，用于消息接口推送，不超过128字节</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="346" parent="32" name="state">
+        <comment>type为view时的回调参数</comment>
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="347" parent="32" name="url">
+        <comment>网页链接，用户点击菜单可打开链接，不超过256字节</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="348" parent="32" name="media_id">
+        <comment>调用新增永久素材接口返回的合法media_id</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <key id="349" parent="32" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="350" parent="33" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="351" parent="33" name="key_value">
+        <comment>来源于wx_button</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="352" parent="33" name="content">
+        <comment>文本消息</comment>
+        <data-type>varchar(120)</data-type>
+      </column>
+      <column id="353" parent="33" name="title">
+        <comment>图文消息名称</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="354" parent="33" name="description">
+        <comment>图文消息描述</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="355" parent="33" name="pic_url">
+        <comment>图片链接，支持JPG、PNG格式，较好的效果为大图640*320，小图80*80，限制图片链接的域名需要与开发者填写的基本资料中的Url一致</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="356" parent="33" name="url">
+        <comment>点击图文消息跳转链接</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="357" parent="33" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="358" parent="34" name="id">
+        <comment>分组id，由微信分配</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="359" parent="34" name="name">
+        <comment>分组名字（30个字符以内)</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(60)</data-type>
+      </column>
+      <column id="360" parent="34" name="count">
+        <comment>分组内用户数量</comment>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="361" parent="34" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="362" parent="35" name="id">
+        <comment>用户的标识，对当前公众号唯一</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(11) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="363" parent="35" name="openid">
+        <comment>用户的标识，对当前公众号唯一</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="364" parent="35" name="opercode">
+        <comment>操作ID（会话状态）</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(4)</data-type>
+      </column>
+      <column id="365" parent="35" name="text_value">
+        <comment>聊天记录</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="366" parent="35" name="time_value">
+        <comment>操作时间，unix时间戳字符串</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="367" parent="35" name="worker">
+        <comment>完整客服帐号，格式为：帐号前缀@公众号微信号</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <key id="368" parent="35" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="369" parent="36" name="open_id">
+        <comment>微信openid</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="370" parent="36" name="cs_id">
+        <comment>云学院id,来自CsUser</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="371" parent="36" name="group_id">
+        <comment>来自wx_group_type中的id</comment>
+        <data-type>int(10)</data-type>
+      </column>
+      <column id="372" parent="36" name="nick_name">
+        <comment>用户的昵称</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="373" parent="36" name="sex">
+        <comment>性别，值为1时是男性，值为2时是女性，值为0时是未知</comment>
+        <data-type>int(1)</data-type>
+      </column>
+      <column id="374" parent="36" name="remark">
+        <comment>备注名</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="375" parent="36" name="subscribe_time">
+        <comment>用户关注时间，为时间戳</comment>
+        <data-type>varchar(16)</data-type>
+      </column>
+      <column id="376" parent="36" name="headimgurl">
+        <comment>用户头像</comment>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="377" parent="36" name="bz">
+        <comment>注备</comment>
+        <data-type>varchar(255)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="378" parent="36" name="state">
+        <comment>是否关注：0未关注，1已关注</comment>
+        <data-type>varchar(2)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="379" parent="36" name="PRIMARY">
+        <columns>open_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="380" parent="37" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="381" parent="37" name="discount_type_bh">
+        <comment>优惠类型N:没优惠，MJ:满减，MZ：满折,Z:折扣</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="382" parent="37" name="mjmz_countje">
+        <comment>满减优惠或满折优惠的总金额</comment>
+        <data-type>double(10,2)</data-type>
+      </column>
+      <column id="383" parent="37" name="mj_je">
+        <comment>满减优惠的优惠金额</comment>
+        <data-type>double(10,2)</data-type>
+      </column>
+      <column id="384" parent="37" name="zmz_zk">
+        <comment>满折优惠或直接打折优惠的折扣度，付款额=总金额*折扣度</comment>
+        <data-type>double(10,2)</data-type>
+      </column>
+      <key id="385" parent="37" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="386" parent="38" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="387" parent="38" name="product_name">
+        <comment>产品名称</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="388" parent="38" name="product_type_bh">
+        <comment>类型编号 TR：培训服务</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="389" parent="38" name="discount_type_id">
+        <comment>折扣类型，去折扣表查询详细折扣信息</comment>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="390" parent="38" name="is_discount_limit_a_number">
+        <comment>是否限制优惠数量</comment>
+        <data-type>char(1)</data-type>
+      </column>
+      <column id="391" parent="38" name="discount_limit_number">
+        <comment>限制优惠的数量</comment>
+        <data-type>int(4)</data-type>
+      </column>
+      <key id="392" parent="38" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="393" parent="39" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="394" parent="39" name="teacher_id">
+        <comment>教师ID</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="395" parent="39" name="teach_subject_name">
+        <comment>课程名称</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="396" parent="39" name="teach_subject_content">
+        <comment>所授课程内容</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="397" parent="39" name="sub_type">
+        <comment>所授课程类型，备用</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="398" parent="39" name="preview_type">
+        <comment>试听类型 video:视频，audio:音频</comment>
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="399" parent="39" name="preview_path">
+        <comment>试听地址</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="400" parent="39" name="bz">
+        <comment>备注</comment>
+        <data-type>varchar(100)</data-type>
+      </column>
+      <key id="401" parent="39" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
