@@ -41,5 +41,6 @@ public class JavaHeapTest {
     public static void main(String[] args) {
         JavaHeapTest javaHeapTest = new JavaHeapTest(OUTOFMEMORY);
         System.out.println(javaHeapTest.getOom().length());
+
     }
 }
